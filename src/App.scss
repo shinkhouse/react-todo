@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+@import "~office-ui-fabric-react/dist/sass/References";
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav + * {
+    height: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+    + * {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todo-container {
+    background-color: white;
+    padding: 20px;
+
+    .todo-toolbar {
+        & .toolbar-title {
+            align-items: center;
+            h2 {
+                margin: 0px;
+                font-size: $ms-font-size-20;
+                font-weight: 600;
+            }
+
+            .list-options {
+                margin: 0px 8px;
+            }
+        }
+    }
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toolbar-subtitle {
+    & span {
+        font-size: $ms-font-size-12;
+    }
 }
