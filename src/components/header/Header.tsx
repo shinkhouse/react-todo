@@ -16,9 +16,9 @@ export class Header extends Component {
                     <div className="flex"></div>
                     <SearchBox placeholder="Search"></SearchBox>
                     <div className="flex"></div>
-                    <IconButton iconProps={{ iconName: 'Settings' }} title="Applications" ariaLabel="Applications" className='applications' />
-                    <IconButton iconProps={{ iconName: 'Help' }} title="Applications" ariaLabel="Applications" className='applications' />
-                    <IconButton iconProps={{ iconName: 'Megaphone' }} title="Applications" ariaLabel="Applications" className='applications' />
+                    <IconButton iconProps={{ iconName: 'Settings' }} title="Settings" ariaLabel="Settings" />
+                    <IconButton iconProps={{ iconName: 'Help' }} title="Help" ariaLabel="Help" />
+                    <IconButton iconProps={{ iconName: 'Megaphone' }} title="Announcements" ariaLabel="Announcements" />
                     <IconButton>
                         <Persona imageUrl="https://media-exp1.licdn.com/dms/image/C4E03AQHVxe_tPw6VTQ/profile-displayphoto-shrink_200_200/0/1517433478778?e=1623888000&v=beta&t=NchUZXrR_uIhY42X4ILv_YCX2941CQYQQApuJT7HYrU" presence={PersonaPresence.online} hidePersonaDetails={true} size={PersonaSize.size32} />
                     </IconButton>
