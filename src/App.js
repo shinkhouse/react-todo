@@ -58,7 +58,7 @@ function App() {
     ]
 
     const [myDay, setMyDay] = useState(initList);
-    const [listInput, setListInput] = useState('chicken');
+    const [listInput, setListInput] = useState('');
 
     console.log(initList);
 
@@ -111,7 +111,7 @@ function App() {
                             <span>{new Date().toLocaleString('en-us', {weekday:'long', month: 'long', day: 'numeric'})}</span>
                         </div>
                     </div>
-                    <TextField placeholder="New Note" onChange={handleListInput} value={listInput} onKeyDown={addToList} underlined iconProps={{iconName: 'Add'}}/>
+                    <TextField placeholder="Add a task" onChange={handleListInput} value={listInput} onKeyDown={addToList} underlined iconProps={{iconName: 'Add'}}/>
                     {/* <p>Some list content...</p> */}
                     <div>
                         {
