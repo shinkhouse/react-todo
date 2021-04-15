@@ -5,7 +5,9 @@ import { loadTheme } from "@uifabric/styling";
 import { Sidenavigation } from "./components/sidenavigation/Sidenavigation";
 import { Customizer } from "@uifabric/utilities";
 import { FluentCustomizations } from "@uifabric/fluent-theme";
-import { IconButton } from "office-ui-fabric-react";
+import { IconButton, TextField } from "office-ui-fabric-react";
+import React, { useState } from 'react';
+import { ListItem } from "./components/ListItem/ListItem";
 
 initializeIcons();
 
@@ -37,6 +39,63 @@ loadTheme({
 });
 
 function App() {
+    const initList = [
+        {
+            content: "List 1",
+            completed: true,
+            favorite: true
+        },
+        {
+            content: "List 2",
+            completed: false,
+            favorite: true
+        },
+        {
+            content: "List 3",
+            completed: false,
+            favorite: true
+        }
+    ]
+
+    const [myDay, setMyDay] = useState(initList);
+    const [listInput, setListInput] = useState('chicken');
+
+    console.log(initList);
+
+    function addToList(e) {
+        setListInput(e.target.value);
+        console.log(e);
+        if (e.keyCode === 13) {
+
+            const list = [...myDay];
+            list.push(
+                {
+                    content: e.target.value,
+                    completed: false,
+                    favorite: false
+                }
+            );
+            setMyDay(list);
+            setListInput('');
+        }
+    }
+
+    function handleListInput(event) {
+        setListInput(event.target.value);
+    }
+
+    function setItemCompletion(index) {
+        const list = [...myDay];
+        list[index].completed = !list[index].completed;
+        setMyDay(list);
+    }
+
+    function setItemFavorited(index) {
+        const list = [...myDay];
+        list[index].favorite = !list[index].favorite;
+        setMyDay(list);
+    }
+
     return (
         <Customizer {...FluentCustomizations}>
             <Header />
@@ -52,7 +111,16 @@ function App() {
                             <span>{new Date().toLocaleString('en-us', {weekday:'long', month: 'long', day: 'numeric'})}</span>
                         </div>
                     </div>
-                    <p>Some list content...</p>
+                    <TextField placeholder="New Note" onChange={handleListInput} value={listInput} onKeyDown={addToList} underlined iconProps={{iconName: 'Add'}}/>
+                    {/* <p>Some list content...</p> */}
+                    <div>
+                        {
+                            myDay.map((item, index) => {
+                                return <ListItem setCompleted={() => setItemCompletion(index)} setFavorited={() => setItemFavorited(index)} favorite={item.favorite} content={item.content} completed={item.completed}/>
+                            // return <p key={index}>{item}</p>
+                        })}
+                    </div>
+
                 </div>
             </main>
         </Customizer>

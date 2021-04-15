@@ -43,3 +43,22 @@ nav {
         font-size: $ms-font-size-12;
     }
 }
+
+.ms-TextField {
+    & .ms-TextField-wrapper {
+        padding: 8px;
+        border-color: #eaeaea;
+
+        &::after {
+            border-bottom: 1px solid $ms-color-blue;
+        }
+
+        & i {
+            left: 8px;
+        }
+
+        & input {
+            padding-left: 36px;
+        }
+    }
+}

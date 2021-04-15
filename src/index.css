@@ -30,3 +30,7 @@ code {
 .layout-row, .layout-column {
     display: flex;
 }
+
+.flex {
+    flex: 1 1 auto;
+}
